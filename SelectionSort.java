@@ -11,9 +11,10 @@ class SelectionSort{
         {
             int min_idx = i;
             for (int j = i+1; j < n; j++){
-                compare++;
-                if (arr[j] > arr[min_idx])
-                min_idx = j;
+                if (arr[j] < arr[min_idx]){
+                    compare++;
+                    min_idx = j;
+                }
             }
             if(min_idx != i){
                 swap++;
@@ -32,9 +33,10 @@ class SelectionSort{
         {
             int min_idx = i;
             for (int j = i+1; j < n; j++){
-                compare++;
-                if (arr[j] < arr[min_idx])
-                min_idx = j;
+                if (arr[j] > arr[min_idx]){
+                    compare++;
+                    min_idx = j;
+                }
             }
             if(min_idx != i){
                 swap++;
@@ -54,7 +56,7 @@ class SelectionSort{
     }
 
     public static void main(String args[]){
-        SelectionSort ob = new SelectionSort();
+        SelectionSort ob = new  SelectionSort();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Number of Elements : ");
         int n = sc.nextInt();
@@ -65,21 +67,26 @@ class SelectionSort{
 
             arr[i] = r.nextInt(100);
         }
-        ob.sort(arr);
+        ob.revsort(arr);
+        System.out.println("\nTaking Reverse Sorted array for Worst Case.\n");
         ob.printArray(arr);
         SelectionSort ob1 = new SelectionSort();
         double start = System.nanoTime();
         ob1.sort(arr);
         double end = System.nanoTime();
-        System.out.println("\n Time taken for best case = " + (end-start)/100000);
+        System.out.print("\nSorted Array ===>");
+        ob1.printArray(arr);
+        System.out.println("\n Time taken for worst case = " + (end-start)/100000);
         System.out.println("\n Swaps = " + ob1.swap);
         System.out.println("\n Comparisons = " + ob1.compare + "\n");
-        ob.revsort(arr);
         SelectionSort ob2 = new SelectionSort();
+        System.out.println("\nTaking previously Sorted array for best Case.\n");
         start = System.nanoTime();
         ob2.sort(arr);
         end = System.nanoTime();
-        System.out.println("\n Time taken for worst case = " + (end-start)/100000);
+        System.out.print("\nSorted Array ===>");
+        ob.printArray(arr);
+        System.out.println("\n Time taken for best case = " + (end-start)/100000);
         System.out.println("\n Swaps = " + ob2.swap);
         System.out.println("\n Comparisons = " + ob2.compare + "\n");
     }

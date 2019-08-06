@@ -15,7 +15,6 @@ class InsertionSort {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
-            swap++;
             arr[j + 1] = key;
         }
     }

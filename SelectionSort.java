@@ -11,8 +11,8 @@ class SelectionSort{
         {
             int min_idx = i;
             for (int j = i+1; j < n; j++){
+                compare++;
                 if (arr[j] < arr[min_idx]){
-                    compare++;
                     min_idx = j;
                 }
             }

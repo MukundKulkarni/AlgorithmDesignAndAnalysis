@@ -23,7 +23,7 @@ class LinearSearch{
         }
         System.out.println("\nEntered Array");
         for(int i = 0; i<n; i++){
-            System.out.print(" " + arr[i]);
+            System.out.print(arr[i]+ " ");
         }
         System.out.println("\nEnter the number you want to search for :");
         int x = sc.nextInt();

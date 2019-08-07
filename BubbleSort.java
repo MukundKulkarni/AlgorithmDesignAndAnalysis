@@ -61,7 +61,7 @@ class BubbleSort
         Random r = new Random();
         for(int i = 0; i<n; i++){
 
-            arr[i] = r.nextInt(100);
+            arr[i] = i+1;
         }
         ob.revsort(arr);
         System.out.println("\nTaking Reverse Sorted array for Worst Case.\n");
@@ -75,7 +75,7 @@ class BubbleSort
         System.out.println("\n Time taken for worst case = " + (end-start)/100000);
         System.out.println("\n Swaps = " + ob1.swap);
         System.out.println("\n Comparisons = " + ob1.compare + "\n");
-        BubbleSort ob2 = new BubbleSort();
+        /*BubbleSort ob2 = new BubbleSort();
         System.out.println("\nTaking previously Sorted array for best Case.\n");
         start = System.nanoTime();
         ob2.sort(arr);
@@ -84,6 +84,6 @@ class BubbleSort
         ob.printArray(arr);
         System.out.println("\n Time taken for best case = " + (end-start)/100000);
         System.out.println("\n Swaps = " + ob2.swap);
-        System.out.println("\n Comparisons = " + ob2.compare + "\n");
+        System.out.println("\n Comparisons = " + ob2.compare + "\n");*/
     }
 }

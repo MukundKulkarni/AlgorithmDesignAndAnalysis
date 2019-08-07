@@ -28,24 +28,19 @@ class BinarySearch {
         int arr[] = new int[n];
         Random r = new Random();
         for(int i = 0; i<n; i++){
-            arr[i] = r.nextInt(1000);
+            arr[i] = i+1;
         }
         System.out.print("\nEntered Array ====> ");
         InsertionSort ob = new InsertionSort();
-        ob.sort(arr);
         ob.printArray(arr);
         System.out.println("\nFor best Case select middle element");
-        int x = arr[n/2];
+        int x = arr[0];
         System.out.println("Searchin for " + x);
-        long start1 = System.currentTimeMillis();
+        double start1 = System.nanoTime();
         int result = binarySearch(arr,0,n-1, x);
-        long end1 = System.currentTimeMillis();
-        System.out.println("\nFound Element at Position " + (result+1) + "   Time taken = " + formatter.format((end1 - start1)/1000d)    + "ms");
+        double end1 = System.nanoTime();
+        System.out.println("\nFound Element at Position " + (result+1) + "   Time taken = " + (end1 - start1)/100000    + "ms");
         System.out.println("\nFor Worst Case select Element outside array");
-        x = 1001;
-        long start2 = System.currentTimeMillis();
-        result = binarySearch(arr,0,n-1, x);
-        long end2 = System.currentTimeMillis();
-        System.out.println("\nElement Not Found  " + "   Time taken = " + (end2-start2)/1000000 + "ms");
+
     }
 }

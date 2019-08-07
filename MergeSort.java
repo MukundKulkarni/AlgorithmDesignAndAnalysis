@@ -79,7 +79,7 @@ class MergeSort{
         Random r = new Random();
         for(int i = 0; i<n; i++){
 
-            arr[i] = r.nextInt(100);
+            arr[i] = i+1;
         }
         System.out.print("\nEntered Array ===>");
         ob.sort(arr,0,n-1);

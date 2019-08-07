@@ -1,4 +1,5 @@
 import java.util.*;
+import java.text.*;
 class BinarySearch {
     static int binarySearch(int arr[], int l, int r, int x)
     {
@@ -20,12 +21,14 @@ class BinarySearch {
     public static void main(String args[])
     {
         Scanner sc = new Scanner(System.in);
+        NumberFormat formatter = new DecimalFormat("#0.00000");
+
         System.out.print("Enter Number of Elements : ");
         int n = sc.nextInt();
         int arr[] = new int[n];
         Random r = new Random();
         for(int i = 0; i<n; i++){
-            arr[i] = r.nextInt(100);
+            arr[i] = r.nextInt(1000);
         }
         System.out.print("\nEntered Array ====> ");
         InsertionSort ob = new InsertionSort();
@@ -33,15 +36,16 @@ class BinarySearch {
         ob.printArray(arr);
         System.out.println("\nFor best Case select middle element");
         int x = arr[n/2];
-        double start = System.nanoTime();
+        System.out.println("Searchin for " + x);
+        long start1 = System.currentTimeMillis();
         int result = binarySearch(arr,0,n-1, x);
-        double end = System.nanoTime();
-        System.out.println("\nFound Element at Position " + (result+1) + "   Time taken = " + (end-start)/100000 + "ms");
+        long end1 = System.currentTimeMillis();
+        System.out.println("\nFound Element at Position " + (result+1) + "   Time taken = " + formatter.format((end1 - start1)/1000d)    + "ms");
         System.out.println("\nFor Worst Case select Element outside array");
-        x = 101;
-        start = System.nanoTime();
+        x = 1001;
+        long start2 = System.currentTimeMillis();
         result = binarySearch(arr,0,n-1, x);
-        end = System.nanoTime();
-        System.out.println("\nElement Not Found  " + "   Time taken = " + (end-start)/100000 + "ms");
+        long end2 = System.currentTimeMillis();
+        System.out.println("\nElement Not Found  " + "   Time taken = " + (end2-start2)/1000000 + "ms");
     }
 }

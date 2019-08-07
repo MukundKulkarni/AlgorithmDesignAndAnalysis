@@ -30,6 +30,6 @@ class LinearSearch{
         double start = System.nanoTime();
         int result = search(arr, x);
         double end = System.nanoTime();
-        System.out.println("\n Time taken = " + (end-start)/100000) + "ms");
+        System.out.println("\n Time taken = " + (end-start)/100000 + "ms");
     }
 }

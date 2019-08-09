@@ -1,9 +1,7 @@
 import java.util.*;
-class QuickSortWorst
-{
+class QuickSortWorst{
     int partition = 0;
-    int partition(int arr[], int low, int high)
-    {
+    int partition(int arr[], int low, int high){
         partition++;
         int pivot = arr[low];
         int i = low;
@@ -15,17 +13,11 @@ class QuickSortWorst
                 int temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
-                //System.out.println("Swapping " + arr[i] +" i index" +  i + " " + " <=====>" + j +" j index " +  arr[j]);
-                //printArray(arr);
-
             }
         }
-
         int temp = arr[i];
         arr[i] = arr[low];
         arr[low] = temp;
-        //printArray(arr);
-
         return i;
     }
 

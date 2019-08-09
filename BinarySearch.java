@@ -1,5 +1,4 @@
 import java.util.*;
-import java.text.*;
 class BinarySearch {
     static int binarySearch(int arr[], int l, int r, int x)
     {

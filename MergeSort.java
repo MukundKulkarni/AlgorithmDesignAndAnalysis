@@ -1,12 +1,12 @@
 import java.util.*;
 class MergeSort{
-    int number_of_merge_calls = 0;
-    void merge(int arr[], int l, int m, int r){
+    double number_of_merge_calls = 0;
+    void merge(double arr[], int l, int m, int r){
         number_of_merge_calls++;
         int n1 = m - l + 1;
         int n2 = r - m;
-        int L[] = new int [n1];
-        int R[] = new int [n2];
+        double L[] = new double [n1];
+        double R[] = new double [n2];
         for (int i=0; i<n1; ++i)
             L[i] = arr[l + i];
         for (int j=0; j<n2; ++j)
@@ -14,7 +14,7 @@ class MergeSort{
         int i = 0, j = 0;
         int k = l;
         while (i < n1 && j < n2){
-            if (L[i] <= R[j]){
+            if (L[i] >= R[j]){
                 arr[k] = L[i];
                 i++;
             }
@@ -36,7 +36,7 @@ class MergeSort{
         }
     }
 
-    void sort(int arr[], int l, int r){
+    void sort(double arr[], int l, int r){
         if (l < r){
             int m = (l+r)/2;
             sort(arr, l, m);
@@ -44,7 +44,7 @@ class MergeSort{
             merge(arr, l, m, r);
         }
     }
-    static void printArray(int arr[]){
+    static void printArray(double arr[]){
         int n = arr.length;
         for (int i=0; i<n; ++i)
         System.out.print(arr[i] + " ");
@@ -55,16 +55,15 @@ class MergeSort{
         MergeSort ob = new  MergeSort();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter Number of Elements : ");
-        int n = sc.nextInt();
-        int arr[] = new int[n];
+        int n = sc.nextInt  ();
+        double arr[] = new double[n];
 
         Random r = new Random();
         for(int i = 0; i<n; i++){
 
-            arr[i] = i+1;
+            arr[i] = r.nextDouble   ();
         }
         System.out.print("\nEntered Array ===>");
-        ob.sort(arr,0,n-1);
         ob.printArray(arr);
         MergeSort ob1 = new  MergeSort();
         double start = System.nanoTime();

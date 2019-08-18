@@ -1,6 +1,6 @@
 import java.util.*;
 class FractionalKnapsack{
-    static double[] getMaxValue(double[] w, double[] v, double W){
+    static void getMaxValue(double[] w, double[] v, double W){
         int n = w.length;
         double[] vbyw = new double[n];
         double[] x = new double[n];
@@ -25,19 +25,13 @@ class FractionalKnapsack{
                 break;
             }
         }
-        ob.printArray(vbyw);
         System.out.println("Max Value obtained = " + value);
-        return x;
     }
 
     public static void main(String args[]){
         double[] w = {10,20,30,40,50};
         double[] v = {50,60,70,80,90};
         double W = 80;
-        double[] x = getMaxValue(w,v,W);
-        for(int i = 0 ; i <w.length ; i++){
-            System.out.println(x[i]);
-        }
-
+        getMaxValue(w,v,W);
     }
 }

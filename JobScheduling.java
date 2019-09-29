@@ -1,5 +1,5 @@
-//Assume jobs are sorted in descending order of profit
-public class Job{
+import java.util.Scanner;
+class Job{
     String id;
     int deadline;
     int profit;
@@ -9,21 +9,70 @@ public class Job{
         deadline = tdeadline;
         profit = tprofit;
     }
-        selectedJobs(Job[] tjobs, int n){
+
+    static void printSelectedJobs(Job[] tjobs){
+
+        boolean[] slot = new boolean[tjobs.length];
+        System.out.println("Selected Jobs");
+        for(int i = 0; i < tjobs.length; i++){
+            for(int j = tjobs[i].deadline; j >= 0; j--){
+                if(slot[j] == false){
+
+                    slot[j] = true;
+
+                    System.out.print(" " + tjobs[i].id + " ");
+                    break;
+                }
+            }
 
         }
+    }
 
+    static void printJobs(Job tjobs[]){
+        for(int i=0; i<tjobs.length; i++){
+            System.out.print(tjobs[i].id + " ");
+        }
+        System.out.println();
+    }
 
+    static void sortProfit(Job tjobs[]){
+        for(int i=0;i < tjobs.length; i++){
+            for(int j = i+1; j< tjobs.length; j++){
+                if(tjobs[i].profit < tjobs[j].profit){
+                    Job temp = new Job(tjobs[j].id, tjobs[j].deadline, tjobs[j].profit);
+                    tjobs[j].id = tjobs[i].id;
+                    tjobs[j].deadline = tjobs[i].deadline;
+                    tjobs[j].profit = tjobs[i].profit;
+
+                    tjobs[i].id = temp.id;
+                    tjobs[i].deadline = temp.deadline;
+                    tjobs[i].profit = temp.profit;
+                }
+            }
+        }
+    }
 }
 
 public class JobScheduling{
     public static void main(String[] args) {
-        Job[] given_jobs = new Job[5];
-        given_jobs[0] = new Job("j1",3,6);
-        given_jobs[1] = new Job("j2",2,4);
-        given_jobs[2] = new Job("j3",1,3);
-        given_jobs[3] = new Job("j4",3,3);
-        given_jobs[4] = new Job("j5",2,2);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter Number of Jobs : ");
+        int n = sc.nextInt();
+        Job[] given_jobs = new Job[n];
+        for(int i = 0; i < n; i++){
+            System.out.print("\nEnter Job " + (i+1) + " ID :");
+            sc.nextLine();
+            String id = sc.nextLine();
+            System.out.print("\nEnter Job " + (i+1) + " deadline :");
+            int deadline = sc.nextInt();
+            System.out.print("\nEnter Job " + (i+1) + " profit :");
+            int profit = sc.nextInt();
 
+            given_jobs[i] = new Job(id,deadline,profit);
+        }
+
+        Job.sortProfit(given_jobs);
+
+        Job.printSelectedJobs(given_jobs);
     }
 }

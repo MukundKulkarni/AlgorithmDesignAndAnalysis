@@ -1,78 +1,63 @@
 import java.util.Scanner;
-class Job{
+class Activity{
     String id;
-    int deadline;
-    int profit;
+    int start;
+    int finish;
 
-    Job(String tid, int tdeadline, int tprofit){
+    Activity(String tid, int tstart, int tfinish){
         id = tid;
-        deadline = tdeadline;
-        profit = tprofit;
+        start = tstart;
+        finish = tfinish;
     }
 
-    static void printSelectedJobs(Job[] tjobs){
+    static void printSelectedActivities(Activity[] tactivities){
 
-        boolean[] slot = new boolean[tjobs.length];
-        System.out.println("Selected Jobs");
-        for(int i = 0; i < tjobs.length; i++){
-            for(int j = tjobs[i].deadline; j >= 0; j--){
-                if(slot[j] == false){
+        System.out.println("Selected Activities\n");
+		System.out.print(tactivities[0].id);
+        for(int i = 1; i < tactivities.length; i++){
 
-                    slot[j] = true;
-
-                    System.out.print(" " + tjobs[i].id + " ");
-                    break;
-                }
-            }
-
-        }
+		}
     }
 
-    static void printJobs(Job tjobs[]){
-        for(int i=0; i<tjobs.length; i++){
-            System.out.print(tjobs[i].id + " ");
-        }
-        System.out.println();
-    }
 
-    static void sortProfit(Job tjobs[]){
-        for(int i=0;i < tjobs.length; i++){
-            for(int j = i+1; j< tjobs.length; j++){
-                if(tjobs[i].profit < tjobs[j].profit){
-                    Job temp = new Job(tjobs[j].id, tjobs[j].deadline, tjobs[j].profit);
-                    tjobs[j].id = tjobs[i].id;
-                    tjobs[j].deadline = tjobs[i].deadline;
-                    tjobs[j].profit = tjobs[i].profit;
+    static void sortfinish(Activity tactivities[]){
+        for(int i=0;i < tactivities.length; i++){
+            for(int j = i+1; j< tactivities.length; j++){
+                if(tactivities[i].finish > tactivities[j].finish){
+                    Activity temp = new Activity(tactivities[j].id, tactivities[j].start, tactivities[j].finish);
+                    tactivities[j].id = tactivities[i].id;
+                    tactivities[j].start = tactivities[i].start;
+                    tactivities[j].finish = tactivities[i].finish;
 
-                    tjobs[i].id = temp.id;
-                    tjobs[i].deadline = temp.deadline;
-                    tjobs[i].profit = temp.profit;
+                    tactivities[i].id = temp.id;
+                    tactivities[i].start = temp.start;
+                    tactivities[i].finish = temp.finish;
                 }
             }
         }
     }
 }
 
-public class JobScheduling{
+public class ActivityScheduling{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Number of Jobs : ");
+        System.out.print("Enter Number of Activitys : ");
         int n = sc.nextInt();
-        Job[] given_jobs = new Job[n];
+        Activity[] given_jobs = new Activity[n];
         for(int i = 0; i < n; i++){
-            System.out.print("\nEnter Job " + (i+1) + " ID :");
+            System.out.print("\nEnter Activity " + (i+1) + " ID :");
             sc.nextLine();
             String id = sc.nextLine();
-            System.out.print("\nEnter Job " + (i+1) + " deadline :");
-            int deadline = sc.nextInt();
-            System.out.print("\nEnter Job " + (i+1) + " profit :");
-            int profit = sc.nextInt();
+            System.out.print("\nEnter Activity " + (i+1) + " start :");
+            int start = sc.nextInt();
+            System.out.print("\nEnter Activity " + (i+1) + " finish :");
+            int finish = sc.nextInt();
 
-            given_jobs[i] = new Job(id,deadline,profit);
+            given_jobs[i] = new Activity(id,start,finish);
         }
 
-        Job.sortProfit(given_jobs);
+        Activity.sortfinish(given_jobs);
 
-        Job.printSelectedJobs(given_jobs);
+        Activity.printSelectedActivitys(given_jobs);
     }
 }

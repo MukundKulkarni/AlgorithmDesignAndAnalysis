@@ -12,10 +12,14 @@ class Activity{
 
     static void printSelectedActivities(Activity[] tactivities){
 
-        System.out.println("Selected Activities\n");
-		System.out.print(tactivities[0].id);
+        System.out.println("\nSelected Activities\n");
+		System.out.print(tactivities[0].id + " ");
+        int cfinish = tactivities[0].finish;
         for(int i = 1; i < tactivities.length; i++){
-
+            if(tactivities[i].start >= cfinish){
+                System.out.print(" " + tactivities[i].id + " ");
+                cfinish = tactivities[i].finish;
+            }
 		}
     }
 
@@ -38,10 +42,10 @@ class Activity{
     }
 }
 
-public class ActivityScheduling{
+public class ActivitySelection{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Number of Activitys : ");
+        System.out.print("Enter Number of Activityies : ");
         int n = sc.nextInt();
         Activity[] given_jobs = new Activity[n];
         for(int i = 0; i < n; i++){
@@ -58,6 +62,6 @@ public class ActivityScheduling{
 
         Activity.sortfinish(given_jobs);
 
-        Activity.printSelectedActivitys(given_jobs);
+        Activity.printSelectedActivities(given_jobs);
     }
 }

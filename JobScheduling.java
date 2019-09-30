@@ -28,13 +28,6 @@ class Job{
         }
     }
 
-    static void printJobs(Job tjobs[]){
-        for(int i=0; i<tjobs.length; i++){
-            System.out.print(tjobs[i].id + " ");
-        }
-        System.out.println();
-    }
-
     static void sortProfit(Job tjobs[]){
         for(int i=0;i < tjobs.length; i++){
             for(int j = i+1; j< tjobs.length; j++){

@@ -12,8 +12,6 @@ class MakingChange{
             solution_matrix[0][i] = Integer.MAX_VALUE - 1;
         }
 
-
-
         for(int i = 1; i < available_denominations.length + 1; i++){
             for(int j = 1; j < total_value + 1; j++){
                 if(available_denominations[i - 1] == j){

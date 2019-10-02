@@ -54,7 +54,7 @@ class MakingChange{
             }
             System.out.println();
         }
-
+        System.out.println("\nMINIMUM NUMBER OF COINS NEEDED: " + result[matrix_row -1 ][matrix_column - 1]);
         System.out.println("\nSELECTED COINS\n");
 
         int i = available_denominations.length;

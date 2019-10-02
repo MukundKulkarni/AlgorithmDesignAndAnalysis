@@ -39,20 +39,21 @@ class ZeroOneKnapsack{
             }
             System.out.println();
         }
-
+        System.out.println("\nMAXIMUM VALUE OBTAINED: " + result[matrix_row - 1][matrix_column - 1]);
         System.out.println("\nSELECTED WEIGHTS\n");
 
         int i = weights.length;
-        int j = total_value;
+        int j = total_weight;
         while(i != 0 || j != 0){
             if(result[i][j] == result[i-1][j]){
                 i--;
             }
             else{
-                System.out.print(available_denominations[i - 1] + " ");
-                j -= available_denominations[i - 1];
+                System.out.print(weights[i - 1] + " ");
+                j -= weights[i - 1];
+                i--;
             }
-        }*/
+        }
 
     }
 }

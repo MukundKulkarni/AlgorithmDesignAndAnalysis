@@ -26,7 +26,7 @@ public class ChainedMatrix{
         printOptimalParenthesizations(s, 0, s.length - 1, inAResult);
     }
 
-    void printOptimalParenthesizations(int[][]s, int i, int j,  /* for pretty printing: */ boolean[] inAResult) {
+    void printOptimalParenthesizations(int[][]s, int i, int j, boolean[] inAResult) {
         if (i != j) {
             printOptimalParenthesizations(s, i, s[i][j], inAResult);
             printOptimalParenthesizations(s, s[i][j] + 1, j, inAResult);

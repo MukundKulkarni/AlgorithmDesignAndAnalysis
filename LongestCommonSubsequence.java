@@ -76,5 +76,26 @@ class LongestCommonSubsequence{
 
         System.out.println("\nLENGTH OF LONGEST COMMON SUBSEQUENCE : " + result[str1.length()][str2.length()]);
 
+        int i = str1.length();
+        int j = str2.length();
+
+        StringBuilder sequence = new StringBuilder();
+
+        while(i != 0 || j != 0){
+            if(path_matrix[i][j] == 'A'){
+                sequence.append(str1.charAt(i - 1));
+                i--;
+                j--;
+            }
+            else if(path_matrix[i][j] == 'L'){
+                j--;
+            }
+            else{
+                i--;
+            }
+
+        }
+        System.out.println("\nLONGEST COMMON SUBSEQUENCE : " + sequence.reverse());
+
     }
 }

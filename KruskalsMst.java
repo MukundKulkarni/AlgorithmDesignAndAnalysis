@@ -70,7 +70,7 @@ public class KruskalsMst
         while(set[x] != x){
             x = set[x];
         }
-                                                                         /* To check the nodes results in circuit or closed path */
+                                                                         
     return x;
     }
     public static void main(String args[]){

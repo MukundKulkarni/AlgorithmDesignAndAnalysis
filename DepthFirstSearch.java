@@ -34,7 +34,6 @@ public class DepthFirstSearch{
 		return neighbours;
 	}
 
-
 	public  void dfs(int adjacency_matrix[][], Node node){
 
 		System.out.print(node.data + " ");
@@ -48,9 +47,7 @@ public class DepthFirstSearch{
 		}
 	}
 
-	public static void main(String arg[])
-	{
-
+	public static void main(String arg[]){
 		Node node40 =new Node(40);
 		Node node10 =new Node(10);
 		Node node20 =new Node(20);
@@ -59,13 +56,9 @@ public class DepthFirstSearch{
 		Node node50 =new Node(50);
 		Node node70 =new Node(70);
 
-		nodes.add(node40);
-		nodes.add(node10);
-		nodes.add(node20);
-		nodes.add(node30);
-		nodes.add(node60);
-		nodes.add(node50);
-		nodes.add(node70);
+		nodes.add(node40); nodes.add(node10); nodes.add(node20);
+		nodes.add(node30); nodes.add(node60); nodes.add(node50);
+        	nodes.add(node70);
 		int adjacency_matrix[][] = {
 				{0,1,1,0,0,0,0},  // Node 1: 40
 				{0,0,0,1,0,0,0},  // Node 2 :10
@@ -77,9 +70,7 @@ public class DepthFirstSearch{
 		};
 
 		DepthFirstSearch dfsob = new DepthFirstSearch();
-
 		System.out.println("The DFS traversal of the graph using recursion ");
 		dfsob.dfs(adjacency_matrix, node40);
-
 	}
 }
